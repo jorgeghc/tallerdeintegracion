@@ -1,0 +1,17 @@
+<h1>Noticias de todo tipo</h1>
+<br><br>
+<% @posts.reverse.take(10).each do |post|%>
+  <%contador = 0%>
+  <%post.comments.each do |comment|%>
+    <%contador = contador+1%>
+  <%end%>
+  <div class="well">
+
+    <h2><%=post.title%></h2>
+    <h3><%=post.headline%></h3>
+    <p><%=post.body%></p>
+    <p><%=post.created_at%></p>
+    <p> Comentarios: <%=contador%></p>
+    <%= link_to 'Read more', post_path(post), :class => 'btn btn-default'%>
+  </div>
+<%end%>
